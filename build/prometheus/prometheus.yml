@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+alerting:
+
+rule_files:
+
+scrape_configs:
+- job_name: demoapp1
+  static_configs:
+  - targets: ["demoapp1:9000"] # TODO: adapt to k8s
