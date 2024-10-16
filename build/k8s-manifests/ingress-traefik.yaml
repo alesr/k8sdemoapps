@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demoapp-ingress
+  namespace: k8sdemoapps
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: demoapp.local
+      http:
+        paths:
+          - path: /demoapp1
+            pathType: Prefix
+            backend:
+              service:
+                name: demoapp1
+                port:
+                  number: 8080
+          - path: /demoapp2
+            pathType: Prefix
+            backend:
+              service:
+                name: demoapp2
+                port:
+                  number: 8080
+          - path: /demoapp3
+            pathType: Prefix
+            backend:
+              service:
+                name: demoapp3
+                port:
+                  number: 8080
