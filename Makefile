@@ -1,6 +1,8 @@
 .DEFAULT_GOAL := help
 
 PROJECT_NAME := Demo App Deployment
+APP_NAME ?= demoapp1
+APP_PATH ?= ../cmd/$(APP_NAME)
 
 .PHONY: help
 help:
@@ -8,9 +10,6 @@ help:
 	@echo "${PROJECT_NAME}"
 	@echo "------------------------------------------------------------------------"
 	@grep -E '^[a-zA-Z0-9_/%\-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-APP_NAME ?= demoapp1
-APP_PATH ?= ../cmd/$(APP_NAME)
 
 .PHONY: build
 build:  ## Build the Docker image for the app

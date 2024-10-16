@@ -9,11 +9,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: demoapp3  # This matches the labels in the pod template
+      app: demoapp3
   template:
     metadata:
       labels:
-        app: demoapp3  # This should match the selector in the service
+        app: demoapp3
         app.kubernetes.io/name: demoapp3
     spec:
       containers:
@@ -33,7 +33,7 @@ metadata:
     app.kubernetes.io/name: demoapp3 
 spec:
   selector:
-    app: demoapp3  # This needs to match the labels in the deployment's pod template
+    app: demoapp3
   ports:
     - name: http
       protocol: TCP
